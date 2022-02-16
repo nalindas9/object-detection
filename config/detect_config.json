@@ -1,0 +1,8 @@
+{
+    "classes": ["cat", "chair", "cow", "diningtable",
+                "background", "aeroplane", "bicycle", "bird",
+                "boat", "bottle", "bus", "car", 
+                "sheep", "sofa", "train", "motorbike",
+                "dog", "horse", "person", "pottedplant", 
+                "tvmonitor"]
+}

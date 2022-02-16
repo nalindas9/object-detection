@@ -1,0 +1,2 @@
+detect:
+  config_path: 'config/detect_config.json'
