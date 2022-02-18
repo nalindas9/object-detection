@@ -35,6 +35,9 @@ class Detect:
         # Define video capture object
         video = cv2.VideoCapture(0)
         HEIGHT, WIDTH = None, None
+        # Define the codec and create VideoWriter object
+        fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+        out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
         while True:
             # Read the frame
             ret, frame = video.read()
@@ -86,6 +89,9 @@ class Detect:
                                 0.5, 
                                 (255, 0, 0), 
                                 2)
+                    # Write the frame to the output video file
+                    #out.write(frame)
+                    
             # Display the frame
             cv2.imshow('Detect', frame)
 
