@@ -3,4 +3,4 @@ detect:
   model:
     model_path: 'models/MobileNetSSD_deploy.caffemodel'
     config_path: 'config/MobileNetSSD_deploy.prototxt.txt'
-    min_confidence: 0.9
+    min_confidence: 0.7
