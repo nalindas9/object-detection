@@ -43,13 +43,14 @@ class Detect:
                 HEIGHT, WIDTH = frame.shape[:2]
             # Get the blob from the frame
             blob = cv2.dnn.blobFromImage(image=frame,
-                                         scalefactor=1.0,
                                          size=(300, 300),
                                          ddepth=cv2.CV_8U)
 
             #print('blob shape: ', blob.shape)
             # Set the blob as input to the network
-            network.setInput(blob)
+            network.setInput(blob, 
+                             scalefactor=1.0 / 127.5,
+                             mean=[127.5, 127.5, 127.5])
 
             # Run the forward pass
             detections = network.forward()
@@ -67,15 +68,24 @@ class Detect:
                     #print('class label: ', class_label)
                     # Extract the class
                     class_name = self._classes[class_label]
-                    #print('class name: ', class_name)
+                    print('class name: ', class_name)
                     # Extract the bounding box
                     box = detections[0, 0, i, 3:7]*np.array([WIDTH, HEIGHT, WIDTH, HEIGHT])
                     #print('box: ', box)
                     (startX, startY, endX, endY) = box.astype("int")
-                    print('(startX, startY, endX, endY): {}, '.format((startX, startY, endX, endY)))
+                    #print('(startX, startY, endX, endY): {}, '.format((startX, startY, endX, endY)))
                     # Draw the bounding box
                     cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 255, 0), 2)
-
+                    # Draw the label on the bounding box
+                    label = "{}: {:.2f}%".format(class_name, confidence * 100)
+                    y = startY - 15 if startY - 15 > 15 else startY + 15
+                    cv2.putText(frame, 
+                                label, 
+                                (startX, y), 
+                                cv2.FONT_HERSHEY_SIMPLEX, 
+                                0.5, 
+                                (255, 0, 0), 
+                                2)
             # Display the frame
             cv2.imshow('Detect', frame)
 
