@@ -1,5 +1,5 @@
-# vehicle-speed-estimation-tracking
-[![License:MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/nalindas9/terrain-understanding/blob/master/LICENSE)
+# object-detection
+[![License:MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/nalindas9/object-detection/blob/master/LICENSE)
 
 ## About
 Using MobileNet SSD model to run inference and detect objects in the scene. Using PyQT5 for FrontEnd GUI.
