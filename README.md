@@ -14,9 +14,10 @@ https://user-images.githubusercontent.com/44141068/154788541-899940ae-7207-496e-
 
 ## System and library requirements
 
+- Python==3.6.9
 - numpy==1.19.5
-- opencv_python==4.5.5.62
-- Pillow==9.0.1
+- opencv_python==4.1.2.30
+- pillow
 - PyQt5==5.15.6
 - PyYAML==6.0
 
